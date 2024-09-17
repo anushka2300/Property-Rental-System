@@ -1,6 +1,13 @@
 import React from 'react';
-
+import { useNavigate } from 'react-router-dom';
+ 
 const Navbar = () => {
+  
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate('/login');
+  };
   return (
     <nav className="fixed top-0 left-0 right-0 bg-black bg-opacity-50 backdrop-blur-md p-4 shadow-lg z-50">
       <div className="container mx-auto flex justify-between items-center">
@@ -11,7 +18,8 @@ const Navbar = () => {
           <li><a href="#" className="text-white hover:text-gray-300">About us</a></li>
           <li><a href="#" className="text-white hover:text-gray-300">Contact</a></li>
         </ul>
-        <button className="bg-white text-green-500 px-5 py-2 rounded-full font-semibold hover:bg-gray-100 transition-all duration-300">
+        <button  onClick={handleClick} 
+        className="bg-white text-green-500 px-5 py-2 rounded-full font-semibold hover:bg-gray-100 transition-all duration-300">
           Login/Signup
         </button>
       </div>

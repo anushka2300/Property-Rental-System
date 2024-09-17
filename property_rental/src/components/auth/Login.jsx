@@ -1,70 +1,72 @@
-// src/Login.jsx
 import React, { useState } from "react";
-import { Link } from "react-router-dom"; // Import Link from react-router-dom
+import { useNavigate } from "react-router-dom";
 
-function Login() {
-  const [formData, setFormData] = useState({
-    email: "",
-    password: "",
-  });
+const LoginPage = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value,
-    });
-  };
+  const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Handle form submission
-    console.log(formData);
+
+    try {
+      const response = await fetch("http://localhost:3001/auth/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ email, password })
+      });
+
+      const loggedIn = await response.json();
+
+      if (loggedIn) {
+        // Save token to local storage or handle login state as needed
+        localStorage.setItem('token', loggedIn.token);
+        navigate("/");
+      }
+    } catch (err) {
+      console.log("Login failed", err.message);
+    }
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="bg-white p-6 rounded-lg shadow-md w-full max-w-md">
-        <h2 className="text-2xl font-bold mb-4">Log In</h2>
-        <form onSubmit={handleSubmit}>
-          <div className="mb-4">
-            <label className="block text-gray-700">Email Address</label>
-            <input
-              type="email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-              className="mt-1 p-2 w-full border rounded"
-              placeholder="Enter your email"
-            />
-          </div>
-          <div className="mb-4">
-            <label className="block text-gray-700">Password</label>
-            <input
-              type="password"
-              name="password"
-              value={formData.password}
-              onChange={handleChange}
-              className="mt-1 p-2 w-full border rounded"
-              placeholder="Enter your password"
-            />
-          </div>
+    <div className="flex items-center justify-center w-screen h-screen bg-cover bg-center" style={{ backgroundImage: 'url("/assets/login.jpg")' }}>
+      <div className="flex flex-col items-center gap-4 w-11/12 max-w-md p-8 bg-black bg-opacity-80 rounded-2xl">
+        <form className="flex flex-col items-center gap-4 w-full" onSubmit={handleSubmit}>
+          <input
+            type="email"
+            placeholder="Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+            className="w-full p-2 text-center text-white bg-transparent border-b border-white/30 outline-none"
+          />
+          <input
+            type="password"
+            placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+            className="w-full p-2 text-center text-white bg-transparent border-b border-white/30 outline-none"
+          />
           <button
             type="submit"
-            className="w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600 transition duration-200"
+            className="w-1/2 p-2 text-white bg-blue-500 rounded hover:shadow-lg"
           >
-            Log In
+            LOG IN
           </button>
         </form>
-        <p className="mt-4 text-center">
-          Don't have an account?{" "}
-          <Link to="/signup" className="text-blue-500 hover:underline">
-            Sign Up
-          </Link>
-        </p>
+        <a
+          href="/register"
+          className="text-white text-lg font-semibold hover:underline"
+        >
+          Don't have an account? Sign In Here
+        </a>
       </div>
     </div>
   );
-}
+};
 
-export default Login;
+export default LoginPage;

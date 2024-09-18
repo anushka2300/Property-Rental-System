@@ -10,7 +10,6 @@ const AboutUs = () => {
               <h2 className="text-3xl font-extrabold text-gray-900 sm:text-4xl">About Us</h2>
               <p className="mt-4 text-gray-600 text-lg">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis eros at lacus feugiat hendrerit sed ut tortor. Suspendisse et magna quis elit efficitur consequat.
-                Mauris eleifend velit a pretium iaculis. Donec sagittis velit et magna euismod, vel aliquet nulla malesuada. Nunc pharetra massa lectus, a fermentum arcu volutpat vel.
               </p>
               <div className="mt-8">
                 <a href="#" className="text-blue-500 hover:text-blue-600 font-medium">
@@ -49,59 +48,26 @@ const AboutUs = () => {
               <div className="relative">
                 <dt>
                   <div className="absolute flex items-center justify-center h-12 w-12 rounded-md bg-primary-500 text-white">
-                    <img
-                      src="https://www.svgrepo.com/show/503163/api-settings.svg"
-                      alt="Powerful API"
-                    />
+                    <img src="https://www.svgrepo.com/show/503163/api-settings.svg" alt="Powerful API" />
                   </div>
                   <p className="font-heading ml-16 text-lg leading-6 font-bold text-gray-700">Powerful API</p>
                 </dt>
                 <dd className="mt-2 ml-16 text-base text-gray-500">
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.
+                  Lorem ipsum, dolor sit amet consectetur adipisicing elit.
                 </dd>
               </div>
               <div className="relative">
                 <dt>
                   <div className="absolute flex items-center justify-center h-12 w-12 rounded-md bg-primary-500 text-white">
-                    <img
-                      src="https://www.svgrepo.com/show/503138/webpack.svg"
-                      alt="Easy to integrate SDK"
-                    />
+                    <img src="https://www.svgrepo.com/show/503138/webpack.svg" alt="Easy to integrate SDK" />
                   </div>
                   <p className="font-heading ml-16 text-lg leading-6 font-bold text-gray-700">Easy to integrate SDK</p>
                 </dt>
                 <dd className="mt-2 ml-16 text-base text-gray-500">
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.
+                  Lorem ipsum, dolor sit amet consectetur adipisicing elit.
                 </dd>
               </div>
-              <div className="relative">
-                <dt>
-                  <div className="absolute flex items-center justify-center h-12 w-12 rounded-md bg-primary-500 text-white">
-                    <img
-                      src="https://www.svgrepo.com/show/511771/dashboard-671.svg"
-                      alt="Low Transaction Cost"
-                    />
-                  </div>
-                  <p className="font-heading ml-16 text-lg leading-6 font-bold text-gray-700">Low Transaction Cost</p>
-                </dt>
-                <dd className="mt-2 ml-16 text-base text-gray-500">
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.
-                </dd>
-              </div>
-              <div className="relative">
-                <dt>
-                  <div className="absolute flex items-center justify-center h-12 w-12 rounded-md bg-primary-500 text-white">
-                    <img
-                      src="https://www.svgrepo.com/show/76267/free-commercial-label.svg"
-                      alt="Powerful Dashboard"
-                    />
-                  </div>
-                  <p className="font-heading ml-16 text-lg leading-6 font-bold text-gray-700">Powerful Dashboard</p>
-                </dt>
-                <dd className="mt-2 ml-16 text-base text-gray-500">
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.
-                </dd>
-              </div>
+              {/* Add more feature cards here if needed */}
             </dl>
           </div>
         </div>
